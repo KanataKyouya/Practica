@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Proceso {
     
     public void Menu() {
-
+        // prueba xd
         Registros reg = new Registros();
         clsGenerales cg = new clsGenerales();
 
