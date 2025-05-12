@@ -2,10 +2,12 @@ import java.util.ArrayList;
 
 public class Proceso {
     
+    Registros reg = new Registros();
+    clsGenerales cg = new clsGenerales();
+
     public void Menu() {
         // prueba xd
-        Registros reg = new Registros();
-        clsGenerales cg = new clsGenerales();
+        
 
         ArrayList<ESTUDIANTE_INGENIERIA> Estudiantes_Ingenieria = reg.Importar_Estudiantes_Ingenieria();
         ArrayList<ESTUDIANTE_DISENO> Estudiantes_Diseño = reg.Importar_Estudiantes_Diseño();
@@ -39,7 +41,7 @@ public class Proceso {
 
         }
         
-
+        MostrarLista(Lista);
         
 
         
@@ -50,6 +52,25 @@ public class Proceso {
         reg.Exportar_Estudiante_Diseño(Estudiantes_Diseño);
         reg.Exportar_Computador(Computador);
         reg.Exportar_Tableta(Tableta);
+
+    }
+
+    public void MostrarLista(ArrayList<COMPUTADOR_PORTATIL> cola) {
+
+        String TextoCola = "Cola de Objpersona: ";
+
+        for (COMPUTADOR_PORTATIL r : cola) {
+
+            TextoCola += "\nNombre: " + r.getSerial() +
+                        "\nCedula: " + r.getMarca() +
+                        "\nEdad: " + r.getTamaño() +
+                        "\nAuxilio: " + r.getPrecio() +
+                        "\nDesplazado: " + r.getSistema_Operativo() +
+                        "\nEstrato: " + r.getProcesador() + "\n";
+
+        }
+
+        cg.Mensaje(TextoCola);
 
     }
 
