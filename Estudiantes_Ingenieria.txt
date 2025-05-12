@@ -1,8 +1,80 @@
-Cedula: 1004013000
-Nombre: Francisco Andres
-Apellido: Taborda Amaya
-Telefono: 0
-Semestre Actual: 3
-Promedio Acomulado: 3.0
+Cedula: 1
+Nombre: Sofía
+Apellido: Gómez
+Telefono: 3098765432
+Semestre Actual: 6
+Promedio Acomulado: 4.23
 Serial: A1
+---------------------------------------
+Cedula: 2
+Nombre: Sebastián
+Apellido: Rodríguez
+Telefono: 3087654321
+Semestre Actual: 3
+Promedio Acomulado: 2.87
+Serial: A2
+---------------------------------------
+Cedula: 3
+Nombre: Valentina
+Apellido: Martínez
+Telefono: 3076543210
+Semestre Actual: 9
+Promedio Acomulado: 3.51
+Serial: A3
+---------------------------------------
+Cedula: 4
+Nombre: Mateo
+Apellido: Pérez
+Telefono: 3065432109
+Semestre Actual: 1
+Promedio Acomulado: 4.98
+Serial: A4
+---------------------------------------
+Cedula: 5
+Nombre: Camila
+Apellido: García
+Telefono: 3054321098
+Semestre Actual: 4
+Promedio Acomulado: 3.12
+Serial: A5
+---------------------------------------
+Cedula: 6
+Nombre: Santiago
+Apellido: Sánchez
+Telefono: 3043210987
+Semestre Actual: 8
+Promedio Acomulado: 2.65
+Serial: A6
+---------------------------------------
+Cedula: 7
+Nombre: Isabella
+Apellido: Hernández
+Telefono: 3032109876
+Semestre Actual: 2
+Promedio Acomulado: 4.79
+Serial: A7
+---------------------------------------
+Cedula: 8
+Nombre: Andrés
+Apellido: Díaz
+Telefono: 3021098765
+Semestre Actual: 7
+Promedio Acomulado: 3.36
+Serial: A8
+---------------------------------------
+Cedula: 9
+Nombre: Mariana
+Apellido: Ramírez
+Telefono: 3010987654
+Semestre Actual: 5
+Promedio Acomulado: 2.92
+Serial: A9
+---------------------------------------
+Cedula: 10
+Nombre: Nicolás
+Apellido: Torres
+Telefono: 3009876543
+Semestre Actual: 10
+Promedio Acomulado: 4.54
+Serial: A10
 ---------------------------------------

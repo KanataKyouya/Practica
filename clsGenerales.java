@@ -338,6 +338,7 @@ public class clsGenerales {
     
     }
 
+    //No vacia
     public String leerCadena2(String Texto) {
 
         String cadena = JOptionPane.showInputDialog(null, Texto).trim( );
@@ -345,10 +346,56 @@ public class clsGenerales {
         if (cadena.isEmpty( )) {
 
             Mensaje("Por favor, ingrese una cadena no vacía");
-            return leerCadena(Texto);
+            return leerCadena2(Texto);
 
         }
 
+        return cadena;
+
+    }
+
+    //Sin Caracteres Ni Vacia
+    public String leerCadena3(String Texto) {
+
+        String cadena = JOptionPane.showInputDialog(null, Texto).trim( );
+
+        if (cadena.isEmpty( )) {
+
+            Mensaje("Por favor, ingrese una cadena no vacía");
+            return leerCadena3(Texto);
+
+        }
+
+        else if (!cadena.matches("[a-zA-Z0-9\\s]+")) {
+
+            Mensaje("Por favor, ingrese una cadena sin caracteres especiales");
+            return leerCadena3(Texto);
+
+        }
+
+        return cadena;
+
+    }
+
+    //Sin Caracteres Ni Numeros Ni Vacia
+    public String leerCadena4(String Texto) {
+
+        String cadena = JOptionPane.showInputDialog(null, Texto).trim( );
+
+        if (cadena.isEmpty( )) {
+
+            Mensaje("Por favor, ingrese una cadena no vacía");
+            return leerCadena4(Texto);
+
+        }
+
+        else if (!cadena.matches("[a-zA-Z\\s]+")) {
+
+            Mensaje("Por favor, ingrese una cadena sin caracteres especiales ni numeros");
+            return leerCadena4(Texto);
+
+        }
+        
         return cadena;
 
     }

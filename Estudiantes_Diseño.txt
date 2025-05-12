@@ -1,0 +1,80 @@
+Cedula: 11
+Nombre: Laura
+Apellido: Patiño
+Telefono: 3012345678
+Modalidad: Virtual
+Cantidad de Asignaturas: 5
+Serial: B1
+---------------------------------------
+Cedula: 12
+Nombre: David
+Apellido: Osorio
+Telefono: 3098765432
+Modalidad: Presencial
+Cantidad de Asignaturas: 7
+Serial: B2
+---------------------------------------
+Cedula: 13
+Nombre: Valeria
+Apellido: Zapata
+Telefono: 3087654321
+Modalidad: Virtual
+Cantidad de Asignaturas: 3
+Serial: B3
+---------------------------------------
+Cedula: 14
+Nombre: Juan
+Apellido: Villa
+Telefono: 3076543210
+Modalidad: Presencial
+Cantidad de Asignaturas: 6
+Serial: B4
+---------------------------------------
+Cedula: 15
+Nombre: Daniela
+Apellido: Restrepo
+Telefono: 3065432109
+Modalidad: Virtual
+Cantidad de Asignaturas: 8
+Serial: B5
+---------------------------------------
+Cedula: 16
+Nombre: Alejandro
+Apellido: López
+Telefono: 3054321098
+Modalidad: Presencial
+Cantidad de Asignaturas: 4
+Serial: B6
+---------------------------------------
+Cedula: 17
+Nombre: Ximena
+Apellido: Herrera
+Telefono: 3043210987
+Modalidad: Virtual
+Cantidad de Asignaturas: 5
+Serial: B7
+---------------------------------------
+Cedula: 18
+Nombre: Felipe
+Apellido: Guzmán
+Telefono: 3032109876
+Modalidad: Presencial
+Cantidad de Asignaturas: 7
+Serial: B8
+---------------------------------------
+Cedula: 19
+Nombre: Carolina
+Apellido: Álvarez
+Telefono: 3021098765
+Modalidad: Virtual
+Cantidad de Asignaturas: 3
+Serial: B9
+---------------------------------------
+Cedula: 20
+Nombre: Gabriel
+Apellido: Ortiz
+Telefono: 3010987654
+Modalidad: Presencial
+Cantidad de Asignaturas: 6
+Serial: B10
+---------------------------------------
