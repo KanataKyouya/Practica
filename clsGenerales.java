@@ -1,4 +1,7 @@
-import javax.swing.JOptionPane;
+import javax.swing.*;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.*;
 
 public class clsGenerales {
    
@@ -10,6 +13,38 @@ public class clsGenerales {
 
         JOptionPane.showMessageDialog(null, Texto);
 
+    }
+
+    public void MensajeLargo(String texto) {
+
+        JDialog dialog = new JDialog((Frame) null, "Mensaje", true);
+        dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+
+        JTextArea textArea = new JTextArea(texto);
+        textArea.setEditable(false);
+        textArea.setFont(new Font("SansSerif", Font.PLAIN, 16));
+
+        JScrollPane scrollPane = new JScrollPane(textArea);
+        scrollPane.setPreferredSize(new Dimension(600, 400));
+
+        JButton aceptarButton = new JButton("Aceptar");
+        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        buttonPanel.add(aceptarButton);
+
+        dialog.getContentPane().setLayout(new BorderLayout());
+        dialog.getContentPane().add(scrollPane, BorderLayout.CENTER);
+        dialog.getContentPane().add(buttonPanel, BorderLayout.SOUTH);
+
+        aceptarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dialog.dispose();
+            }
+        });
+
+        dialog.pack();
+        dialog.setLocationRelativeTo(null);
+        dialog.setVisible(true);
     }
 
     public int leerEntero(String Texto) {
@@ -315,56 +350,6 @@ public class clsGenerales {
         }
 
         return cadena;
-
-    }
-
-    public int leerEstrato_06(String Texto) {
-        try {
-            int numero = Integer.parseInt(JOptionPane.showInputDialog(null, Texto));
-    
-            if (numero < 0 || numero > 5) { // Verifica que esté entre 0 y 5
-                Mensaje("Por favor, ingrese un número entero entre 0 y 6");
-                return leerEstrato_06(Texto); // Llama recursivamente si el número no es válido
-            }
-    
-            return numero;
-    
-        } catch (Exception e) { // Captura cualquier error al ingresar el dato
-            Mensaje("Error, tipo de dato no válido. Por favor, ingrese un número entero entre 0 y 6");
-            return leerEstrato_06(Texto); // Llama recursivamente si ocurre una excepersonaión
-        }
-    }
-
-    public int leerEdad(String Texto) {
-
-        try {
-
-            int numero = Integer.parseInt(JOptionPane.showInputDialog(null, Texto));
-
-            if (numero < 0) {
-
-                Mensaje("Por favor, ingrese un número entero mayor o igual a cero");
-                return leerEnteroPos(Texto);
-
-            }
-
-            else if (numero > 110) {
-
-                Mensaje("Ingrese un numero menor a 110, la esperanza de vida no es tan alta");
-                return leerEnteroPos(Texto);
-
-            }
-
-            return numero;
-
-        }
-
-        catch (Exception e) {
-
-            Mensaje("Error, tipo de dato no válido. Por favor, ingrese un número entero mayor o igual a cero");
-            return leerEnteroPos(Texto);
-
-        }
 
     }
     

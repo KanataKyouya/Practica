@@ -1,0 +1,8 @@
+Cedula: 1004013000
+Nombre: Francisco Andres
+Apellido: Taborda Amaya
+Telefono: 0
+Semestre Actual: 3
+Promedio Acomulado: 3.0
+Serial: A1
+---------------------------------------

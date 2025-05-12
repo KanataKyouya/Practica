@@ -1,0 +1,70 @@
+Serial: A1
+Marca: Lenovo
+Tamaño: 0.0
+Precio: 850.5
+Sistema Operativo: Windows 10
+Procesador: IntelÂ® Coreâ„¢ i5
+---------------------------------------
+Serial: A2
+Marca: Dell
+Tamaño: 0.0
+Precio: 1200.0
+Sistema Operativo: Windows 11
+Procesador: AMD Ryzen
+---------------------------------------
+Serial: A3
+Marca: HP
+Tamaño: 0.0
+Precio: 999.99
+Sistema Operativo: Windows 7
+Procesador: IntelÂ® Coreâ„¢ i5
+---------------------------------------
+Serial: A4
+Marca: Asus
+Tamaño: 0.0
+Precio: 700.0
+Sistema Operativo: Windows 10
+Procesador: AMD Ryzen
+---------------------------------------
+Serial: A5
+Marca: Acer
+Tamaño: 0.0
+Precio: 1100.0
+Sistema Operativo: Windows 11
+Procesador: IntelÂ® Coreâ„¢ i5
+---------------------------------------
+Serial: A6
+Marca: Toshiba
+Tamaño: 0.0
+Precio: 800.0
+Sistema Operativo: Windows 7
+Procesador: AMD Ryzen
+---------------------------------------
+Serial: A7
+Marca: Samsung
+Tamaño: 0.0
+Precio: 1300.0
+Sistema Operativo: Windows 10
+Procesador: IntelÂ® Coreâ„¢ i5
+---------------------------------------
+Serial: A8
+Marca: Apple
+Tamaño: 0.0
+Precio: 1500.0
+Sistema Operativo: Windows 11
+Procesador: AMD Ryzen
+---------------------------------------
+Serial: A9
+Marca: Microsoft
+Tamaño: 0.0
+Precio: 1400.0
+Sistema Operativo: Windows 7
+Procesador: IntelÂ® Coreâ„¢ i5
+---------------------------------------
+Serial: A10
+Marca: MSI
+Tamaño: 0.0
+Precio: 1600.0
+Sistema Operativo: Windows 10
+Procesador: AMD Ryzen
+---------------------------------------

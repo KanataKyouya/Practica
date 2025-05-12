@@ -95,6 +95,12 @@ public class Registros {
 
             }
 
+            if (Estudiante != null) {
+
+                Lista.add(Estudiante);
+                
+            }
+
         } 
         
         catch (IOException e) {
@@ -196,6 +202,12 @@ public class Registros {
 
             }
 
+            if (Estudiante != null) {
+
+                Lista.add(Estudiante);
+                
+            }
+
         } 
         
         catch (IOException e) {
@@ -210,7 +222,7 @@ public class Registros {
 
     public ArrayList<COMPUTADOR_PORTATIL> Importar_Computador_Portatil() {
 
-        String rutaArchivo = "Computador_Portatil.txt";
+        String rutaArchivo = "TABLETA_GRAFICA.txt";
 
         ArrayList<COMPUTADOR_PORTATIL> Lista = new ArrayList<>();
 
@@ -284,6 +296,12 @@ public class Registros {
                     }
 
                 }
+
+            }
+
+            if (Computador != null) {
+
+                Lista.add(Computador);
 
             }
 
@@ -380,7 +398,13 @@ public class Registros {
                 
 
             }
-            
+
+            if (Tableta != null) {
+
+                Lista.add(Tableta);
+                
+            }
+
         } 
         
         catch (IOException e) {
@@ -449,7 +473,7 @@ public class Registros {
 
     public void Exportar_Computador(ArrayList<COMPUTADOR_PORTATIL> Lista) {
 
-        try (FileWriter escriba = new FileWriter("Computador_Portatil.txt")) {
+        try (FileWriter escriba = new FileWriter("TABLETA_GRAFICA.txt")) {
 
             for (COMPUTADOR_PORTATIL item : Lista) {
 
