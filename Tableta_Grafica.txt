@@ -1,69 +1,69 @@
 Serial: B1
 Marca: Wacom
-Tamaño: 0.0
+TamaÃ±o: 0.0
 Precio: 350.0
 Almacenamiento: 256 GB
 Peso: 0.85
 ---------------------------------------
 Serial: B2
 Marca: Huion
-Tamaño: 0.0
+TamaÃ±o: 0.0
 Precio: 480.5
 Almacenamiento: 512 GB
 Peso: 1.2
 ---------------------------------------
 Serial: B3
 Marca: XP-Pen
-Tamaño: 0.0
+TamaÃ±o: 0.0
 Precio: 299.99
 Almacenamiento: 1 TB
 Peso: 0.68
 ---------------------------------------
 Serial: B4
 Marca: Gaomon
-Tamaño: 0.0
+TamaÃ±o: 0.0
 Precio: 220.0
 Almacenamiento: 256 GB
 Peso: 0.45
 ---------------------------------------
 Serial: B5
 Marca: Artisul
-Tamaño: 0.0
+TamaÃ±o: 0.0
 Precio: 550.0
 Almacenamiento: 512 GB
 Peso: 1.1
 ---------------------------------------
 Serial: B6
 Marca: Ugee
-Tamaño: 0.0
+TamaÃ±o: 0.0
 Precio: 310.0
 Almacenamiento: 1 TB
 Peso: 0.75
 ---------------------------------------
 Serial: B7
 Marca: Parblo
-Tamaño: 0.0
+TamaÃ±o: 0.0
 Precio: 180.0
 Almacenamiento: 256 GB
 Peso: 0.38
 ---------------------------------------
 Serial: B8
 Marca: Renaisser
-Tamaño: 0.0
+TamaÃ±o: 0.0
 Precio: 420.0
 Almacenamiento: 512 GB
 Peso: 0.92
 ---------------------------------------
 Serial: B9
 Marca: Maxtear
-Tamaño: 0.0
+TamaÃ±o: 0.0
 Precio: 200.0
 Almacenamiento: 1 TB
 Peso: 0.5
 ---------------------------------------
 Serial: B10
 Marca: Simbans
-Tamaño: 0.0
+TamaÃ±o: 0.0
 Precio: 270.0
 Almacenamiento: 256 GB
 Peso: 0.6

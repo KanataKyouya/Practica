@@ -1,3 +1,4 @@
+import java.time.format.TextStyle;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -13,7 +14,7 @@ public class Proceso {
         ArrayList<COMPUTADOR_PORTATIL> Lista_Computadores = reg.Importar_Computador_Portatil();
         ArrayList<TABLETA_GRAFICA> Lista_Tabletas = reg.Importar_Tableta_Grafica();
 
-        boolean continuar = true;
+        boolean continuar = true, esTableta = true;
 
         do {
 
@@ -29,7 +30,6 @@ public class Proceso {
     
                 case 2:
 
-                    boolean esTableta = true;
                     Menu_Interno(Lista_Tabletas, Lista_Estudiantes_Diseño, esTableta);
     
                     break;
@@ -41,6 +41,18 @@ public class Proceso {
                     break;
     
                 case 4:
+
+                    Menu_Inventario(Lista_Computadores);
+
+                    break;
+
+                case 5:
+
+                    Menu_Invetario(Lista_Tabletas, esTableta);
+
+                    break;
+
+                case 6:
                     
                     cg.Mensaje("Programa finalizado");
                     continuar = false;
@@ -68,9 +80,11 @@ public class Proceso {
                                                                         "1) Estudiante Ingenieria\n" +
                                                                         "2) Estudiante Diseño\n" +
                                                                         "3) Imprimir inventario total\n" +
-                                                                        "4) Salir del programa"));
+                                                                        "4) Administrar computadores\n" +
+                                                                        "5) Administrar tabletas\n" +
+                                                                        "6) Salir del programa"));
     
-            if (numero < 0 || numero > 4) {
+            if (numero < 0 || numero > 6) {
 
                 cg.Mensaje("Por favor, ingrese una opcion valida");
 
@@ -948,5 +962,284 @@ public class Proceso {
         return TextoTableta;
 
     }
+
+    private void Menu_Inventario(ArrayList<COMPUTADOR_PORTATIL> Lista_Computadores) {
+        
+        boolean continuar = true;
+        String Serial = "";
+
+        do {
+
+            int opt = Validar_Opcion_Menu_1_5("Estudiante de ingenieria\n" +
+                                                "1) Registrar computador\n" +
+                                                "2) Modificar computador\n" +
+                                                "3) Eliminar computador\n" +
+                                                "4) Buscar computador\n" +
+                                                "5) Volver al menu principal");
+
+            switch (opt) {
+
+                case 1:
+
+                    Lista_Computadores = Registrar_Equipo(Lista_Computadores);
+                    
+                    break;
+
+                case 2:
+                    
+                    Serial = cg.leerCadena3("Ingrese la serial:");
+                    Modificar_Equipo(Serial, Lista_Computadores);
+
+                    break;
+            
+                case 3:
+
+                    Serial = cg.leerCadena3("Ingrese el serial:");
+                    Eliminar_Equipo(Serial, Lista_Computadores);
+
+                    break;
+
+                case 4:
+                    
+                    Serial = cg.leerCadena3("Ingrese el serial:");
+                    Buscar_Equipo2(Lista_Computadores, Serial);  
+
+                    break;
+
+                case 5:
+
+                    cg.Mensaje("Volviendo al menu principal");
+                    continuar = false; 
+
+                    break;
+
+            }
+        
+        }
+
+        while(continuar == true);
+
+    }
+
+    private ArrayList<COMPUTADOR_PORTATIL> Registrar_Equipo(ArrayList<COMPUTADOR_PORTATIL> Lista_Computadores) {
+
+        COMPUTADOR_PORTATIL computador = new COMPUTADOR_PORTATIL();
+        String Serial = cg.leerCadena3("Ingrese el serial: ");
+
+        if (ValidarExistenciaEquipo(Lista_Computadores, Serial)) {
+            
+            cg.Mensaje("Ya hay un equipo registrado con este serial");
+            return Lista_Computadores;
+
+        }
+
+        computador.setSerial(Serial);
+        computador.setMarca(cg.leerCadena4("Ingrese ea marca: "));
+        computador.setTamaño(cg.leerRealPosMy0_f("Ingrese el tamaño(Pulgadas): "));
+        computador.setPrecio(cg.leerRealPosMy0_f("Ingrese el precio: "));
+        computador.setSistema_Operativo(IngresoSistemaOperativo("Ingrese el sistema operativo: \n"));
+        computador.setProcesador(IngresoProcesador("Ingrese el procesador: \n"));
+
+        Lista_Computadores.add(computador);
+        cg.Mensaje("Computador Portátil agregado.");
+    
+        return Lista_Computadores;
+
+    }
+
+    private boolean ValidarExistenciaEquipo(ArrayList<COMPUTADOR_PORTATIL> Lista_Computadores, String Serial) {
+
+        for (COMPUTADOR_PORTATIL computador : Lista_Computadores) {
+
+            if (computador.getSerial().equals(Serial)) {
+
+                return true;
+
+            }
+
+        }
+
+        return false;        
+
+    }
+
+    private ArrayList<COMPUTADOR_PORTATIL> Modificar_Equipo(String Serial, ArrayList<COMPUTADOR_PORTATIL> Lista_Computadores) {
+
+        boolean encontrado = false;
+
+        for (int i = 0; i < Lista_Computadores.size(); i++) {
+            
+            COMPUTADOR_PORTATIL computador = Lista_Computadores.get(i);
+
+            if (computador.getSerial().equals(Serial)) {
+
+                encontrado = true;
+                
+                computador.setSerial(Serial);
+                computador.setMarca(cg.leerCadena4("Ingrese la marca(Antes " + computador.getMarca() + "): "));
+                computador.setTamaño(cg.leerRealPosMy0_f("Ingrese el tamaño(Pulgadas, antes " + computador.getTamaño() + "): "));
+                computador.setPrecio(cg.leerRealPosMy0_f("Ingrese el precio(Antes " + computador.getPrecio() + "):"));
+                computador.setSistema_Operativo(IngresoSistemaOperativo("Ingrese el sistema operativo(Antes " + computador.getSistema_Operativo() + "): \n"));
+                computador.setProcesador(IngresoProcesador("Ingrese el nuevo procesador(Antes " + computador.getProcesador() + ") "));
+
+            }
+
+        }     
+        
+        if (encontrado == false) {
+
+            cg.Mensaje("No se halló un prestamo con este serial");
+
+        }   
+
+        return Lista_Computadores;
+
+        
+
+    }
+
+    private ArrayList<COMPUTADOR_PORTATIL> Eliminar_Equipo(String Serial, ArrayList<COMPUTADOR_PORTATIL> Lista_Computadores) {
+        
+        boolean encontrado = false;
+
+        for (int i = 0; i < Lista_Computadores.size(); i++) {
+            
+            COMPUTADOR_PORTATIL computador = Lista_Computadores.get(i);
+
+            if (computador.getSerial().equals(Serial)) {
+
+                encontrado = true;
+                Lista_Computadores.remove(i);
+
+            }
+
+        }     
+        
+        if (encontrado == false) {
+
+            cg.Mensaje("No se halló un equipo con este serial");
+
+        }   
+
+        return Lista_Computadores;
+
+    }
+
+    private void Buscar_Equipo2(ArrayList<COMPUTADOR_PORTATIL> Lista_Computadores, String Serial) {
+
+        boolean encontrado = false;
+
+        for (COMPUTADOR_PORTATIL computador : Lista_Computadores) {
+
+            if (computador.getSerial().equals(Serial)) {
+
+                encontrado = true;
+
+                cg.Mensaje("\nSerial: " + computador.getSerial() +
+                        "\nMarca: " + computador.getMarca() +
+                        "\nTamaño: " + computador.getTamaño() +
+                        "\nPrecio: " + computador.getPrecio() +
+                        "\nSistema operativo: " + computador.getSistema_Operativo() +
+                        "\nProcesador: " + computador.getProcesador());
+
+            }
+
+        }     
+        
+        if (encontrado == false) {
+
+            cg.Mensaje("No se halló un equipo con ese serial");
+
+        }
+
+    }
+
+    private String IngresoSistemaOperativo(String Texto) {
+
+        try {
+
+            int numero = Integer.parseInt(JOptionPane.showInputDialog(Texto +
+                                                                        "1) Windows 7\n" +
+                                                                        "2) Windows 10\n" +
+                                                                        "3) Windows 11"));
+    
+            if (numero < 0 || numero > 3) {
+
+                cg.Mensaje("Por favor, ingrese una opcion valida");
+
+                return IngresoSistemaOperativo(Texto);
+
+            }
+    
+            switch (numero) {
+
+                case 1:
+                    
+                    return "Windows 7";
+            
+                case 2:
+
+                    return "Windows 10";
+
+                 case 3:
+
+                    return "Windows 11";
+
+            }
+    
+        }
+        
+        catch (Exception e) {
+
+            cg.Mensaje("Error, tipo de dato no válido. Por favor, ingrese número valido");
+
+            return IngresoSistemaOperativo(Texto);
+
+        }
+
+    }
+
+    private String IngresoProcesador(String Texto) {
+
+        try {
+
+            int numero = Integer.parseInt(JOptionPane.showInputDialog(Texto +
+                                                                        "1) Windows 7\n" +
+                                                                        "2) Windows 10\n" +
+                                                                        "3) Windows 11"));
+    
+            if (numero < 0 || numero > 3) {
+
+                cg.Mensaje("Por favor, ingrese una opcion valida");
+
+                return IngresoProcesador(Texto);
+
+            }
+    
+            switch (numero) {
+
+                case 1:
+                    
+                    return "AMD Ryzen";
+            
+                case 2:
+
+                    return "Intel Core i5";
+
+            }
+    
+        }
+        
+        catch (Exception e) {
+
+            cg.Mensaje("Error, tipo de dato no válido. Por favor, ingrese número valido");
+
+            return IngresoProcesador(Texto);
+
+        }
+
+    }
+
+    
 
 }

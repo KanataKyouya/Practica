@@ -257,7 +257,7 @@ public class Registros {
 
                 }
                 
-                else if (line.startsWith("Tamaño: ")) {
+                else if (line.startsWith("Tama\u00f1o: ")) {
 
                     if (Computador != null) {
 

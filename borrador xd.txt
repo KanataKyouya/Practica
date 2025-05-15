@@ -1,0 +1,236 @@
+private void Menu_Inventario(ArrayList<TABLETA_GRAFICA> Lista_tabletaes) {
+        
+        boolean continuar = true;
+        String Serial = "";
+
+        do {
+
+            int opt = Validar_Opcion_Menu_1_5("Estudiante de ingenieria\n" +
+                                                "1) Registrar tableta\n" +
+                                                "2) Modificar tableta\n" +
+                                                "3) Eliminar tableta\n" +
+                                                "4) Buscar tableta\n" +
+                                                "5) Volver al menu principal");
+
+            switch (opt) {
+
+                case 1:
+
+                    Lista_tabletaes = Registrar_Equipo(Lista_tabletaes);
+                    
+                    break;
+
+                case 2:
+                    
+                    Serial = cg.leerCadena3("Ingrese la serial:");
+                    Modificar_Equipo(Serial, Lista_tabletaes);
+
+                    break;
+            
+                case 3:
+
+                    Serial = cg.leerCadena3("Ingrese el serial:");
+                    Eliminar_Equipo(Serial, Lista_tabletaes);
+
+                    break;
+
+                case 4:
+                    
+                    Serial = cg.leerCadena3("Ingrese el serial:");
+                    Buscar_Equipo2(Lista_tabletaes, Serial);  
+
+                    break;
+
+                case 5:
+
+                    cg.Mensaje("Volviendo al menu principal");
+                    continuar = false; 
+
+                    break;
+
+            }
+        
+        }
+
+        while(continuar == true);
+
+    }
+
+    private ArrayList<TABLETA_GRAFICA> Registrar_Equipo(ArrayList<TABLETA_GRAFICA> Lista_tabletaes) {
+
+        TABLETA_GRAFICA tableta = new TABLETA_GRAFICA();
+        String Serial = cg.leerCadena3("Ingrese el serial: ");
+
+        if (ValidarExistenciaEquipo(Lista_tabletaes, Serial)) {
+            
+            cg.Mensaje("Ya hay un equipo registrado con este serial");
+            return Lista_tabletaes;
+
+        }
+
+        tableta.setSerial(Serial);
+        tableta.setMarca(cg.leerCadena4("Ingrese ea marca: "));
+        tableta.setTamaño(cg.leerRealPosMy0_f("Ingrese el tamaño(Pulgadas): "));
+        tableta.setPrecio(cg.leerRealPosMy0_f("Ingrese el precio: "));
+        tableta.setSistema_Operativo(IngresoSistemaOperativo("Ingrese el sistema operativo: \n"));
+        tableta.setProcesador(IngresoProcesador("Ingrese el procesador: \n"));
+
+        Lista_tabletaes.add(tableta);
+        cg.Mensaje("tableta Portátil agregado.");
+    
+        return Lista_tabletaes;
+
+    }
+
+    private boolean ValidarExistenciaEquipo(ArrayList<TABLETA_GRAFICA> Lista_tabletaes, String Serial) {
+
+        for (TABLETA_GRAFICA tableta : Lista_tabletaes) {
+
+            if (tableta.getSerial().equals(Serial)) {
+
+                return true;
+
+            }
+
+        }
+
+        return false;        
+
+    }
+
+    private ArrayList<TABLETA_GRAFICA> Modificar_Equipo(String Serial, ArrayList<TABLETA_GRAFICA> Lista_tabletaes) {
+
+        boolean encontrado = false;
+
+        for (int i = 0; i < Lista_tabletaes.size(); i++) {
+            
+            TABLETA_GRAFICA tableta = Lista_tabletaes.get(i);
+
+            if (tableta.getSerial().equals(Serial)) {
+
+                encontrado = true;
+                
+                tableta.setSerial(Serial);
+                tableta.setMarca(cg.leerCadena4("Ingrese la marca(Antes " + tableta.getMarca() + "): "));
+                tableta.setTamaño(cg.leerRealPosMy0_f("Ingrese el tamaño(Pulgadas, antes " + tableta.getTamaño() + "): "));
+                tableta.setPrecio(cg.leerRealPosMy0_f("Ingrese el precio(Antes " + tableta.getPrecio() + "):"));
+                tableta.setSistema_Operativo(IngresoSistemaOperativo("Ingrese el sistema operativo(Antes " + tableta.getSistema_Operativo() + "): \n"));
+                tableta.setProcesador(IngresoProcesador("Ingrese el nuevo procesador(Antes " + tableta.getProcesador() + ") "));
+
+            }
+
+        }     
+        
+        if (encontrado == false) {
+
+            cg.Mensaje("No se halló un prestamo con este serial");
+
+        }   
+
+        return Lista_tabletaes;
+
+        
+
+    }
+
+    private ArrayList<TABLETA_GRAFICA> Eliminar_Equipo(String Serial, ArrayList<TABLETA_GRAFICA> Lista_tabletaes) {
+        
+        boolean encontrado = false;
+
+        for (int i = 0; i < Lista_tabletaes.size(); i++) {
+            
+            TABLETA_GRAFICA tableta = Lista_tabletaes.get(i);
+
+            if (tableta.getSerial().equals(Serial)) {
+
+                encontrado = true;
+                Lista_tabletaes.remove(i);
+
+            }
+
+        }     
+        
+        if (encontrado == false) {
+
+            cg.Mensaje("No se halló un equipo con este serial");
+
+        }   
+
+        return Lista_tabletaes;
+
+    }
+
+    private void Buscar_Equipo2(ArrayList<TABLETA_GRAFICA> Lista_tabletaes, String Serial) {
+
+        boolean encontrado = false;
+
+        for (TABLETA_GRAFICA tableta : Lista_tabletaes) {
+
+            if (tableta.getSerial().equals(Serial)) {
+
+                encontrado = true;
+
+                cg.Mensaje("\nSerial: " + tableta.getSerial() +
+                        "\nMarca: " + tableta.getMarca() +
+                        "\nTamaño: " + tableta.getTamaño() +
+                        "\nPrecio: " + tableta.getPrecio() +
+                        "\nSistema operativo: " + tableta.getSistema_Operativo() +
+                        "\nProcesador: " + tableta.getProcesador());
+
+            }
+
+        }     
+        
+        if (encontrado == false) {
+
+            cg.Mensaje("No se halló un equipo con ese serial");
+
+        }
+
+    }
+
+    private String IngresoAlmacenamiento(String Texto) {
+
+        try {
+
+            int numero = Integer.parseInt(JOptionPane.showInputDialog(Texto +
+                                                                        "1) 256 GB\n" +
+                                                                        "2) 512 GB\n" +
+                                                                        "3) 1 TB"));
+    
+            if (numero < 0 || numero > 3) {
+
+                cg.Mensaje("Por favor, ingrese una opcion valida");
+
+                return IngresoAlmacenamiento(Texto);
+
+            }
+    
+            switch (numero) {
+
+                case 1:
+                    
+                    return "256 GB";
+            
+                case 2:
+
+                    return "512 GB";
+
+                 case 3:
+
+                    return "1 TB";
+
+            }
+    
+        }
+        
+        catch (Exception e) {
+
+            cg.Mensaje("Error, tipo de dato no válido. Por favor, ingrese número valido");
+
+            return IngresoAlmacenamiento(Texto);
+
+        }
+
+    }
+

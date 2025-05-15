@@ -1,9 +1,9 @@
 Cedula: 1
-Nombre: Sofía
-Apellido: Gómez
+Nombre: Sofi
+Apellido: Gomez
 Telefono: 3098765432
-Semestre Actual: 6
-Promedio Acomulado: 4.23
+Semestre Actual: 5
+Promedio Acomulado: 4.25
 Serial: A1
 ---------------------------------------
 Cedula: 2
