@@ -64,7 +64,7 @@ Serial: B8
 ---------------------------------------
 Cedula: 19
 Nombre: Carolina
-Apellido: √Ålvarez
+Apellido: √?lvarez
 Telefono: 3021098765
 Modalidad: Virtual
 Cantidad de Asignaturas: 3

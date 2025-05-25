@@ -1,5 +1,4 @@
-import java.time.format.TextStyle;
-import java.util.ArrayList;
+    import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 public class Proceso {
@@ -48,7 +47,7 @@ public class Proceso {
 
                 case 5:
 
-                    Menu_Invetario(Lista_Tabletas, esTableta);
+                    Menu_Inventario(Lista_Tabletas, esTableta);
 
                     break;
 
@@ -76,7 +75,7 @@ public class Proceso {
 
         try {
 
-            int numero = Integer.parseInt(JOptionPane.showInputDialog("Sistema de prestamos\n" +
+            int numero = Integer.parseInt(JOptionPane.showInputDialog("GESTIóN DE PRESTAMO DE EQUIPOS ELECTRÓNICOS SAN JUAN DE DIOS\n" +
                                                                         "1) Estudiante Ingenieria\n" +
                                                                         "2) Estudiante Diseño\n" +
                                                                         "3) Imprimir inventario total\n" +
@@ -280,7 +279,7 @@ public class Proceso {
 
                 if (ValidarExistencia(Lista_Estudiantes_Ingenieria, Serial)) {
 
-                    cg.Mensaje("El computador de este serial ya esta en prestamo, ingrese otro");
+                    cg.Mensaje("El computador de este serial ya esta en prestamo, ingrese otro serial");
 
                 }
 
@@ -963,6 +962,8 @@ public class Proceso {
 
     }
 
+    // Acá empiezan el menu de los computadores
+
     private void Menu_Inventario(ArrayList<COMPUTADOR_PORTATIL> Lista_Computadores) {
         
         boolean continuar = true;
@@ -1158,6 +1159,8 @@ public class Proceso {
 
         try {
 
+            String opt = "";
+
             int numero = Integer.parseInt(JOptionPane.showInputDialog(Texto +
                                                                         "1) Windows 7\n" +
                                                                         "2) Windows 10\n" +
@@ -1170,22 +1173,31 @@ public class Proceso {
                 return IngresoSistemaOperativo(Texto);
 
             }
+            
     
             switch (numero) {
 
                 case 1:
                     
-                    return "Windows 7";
+                    opt =  "Windows 7";
+
+                    break;
             
                 case 2:
 
-                    return "Windows 10";
+                    opt =  "Windows 10";
+
+                    break;
 
                  case 3:
 
-                    return "Windows 11";
+                    opt =  "Windows 11";
+
+                    break;
 
             }
+
+            return opt;
     
         }
         
@@ -1202,6 +1214,8 @@ public class Proceso {
     private String IngresoProcesador(String Texto) {
 
         try {
+
+            String opt = "";
 
             int numero = Integer.parseInt(JOptionPane.showInputDialog(Texto +
                                                                         "1) Windows 7\n" +
@@ -1220,13 +1234,19 @@ public class Proceso {
 
                 case 1:
                     
-                    return "AMD Ryzen";
+                    opt = "AMD Ryzen";
+
+                    break;
             
                 case 2:
 
-                    return "Intel Core i5";
+                    opt = "Intel Core i5";
+
+                    break;
 
             }
+
+            return opt;
     
         }
         
@@ -1240,6 +1260,252 @@ public class Proceso {
 
     }
 
+    // Acá empiezan el menu de las tabletas
+
+    private void Menu_Inventario(ArrayList<TABLETA_GRAFICA> Lista_tabletas, boolean esTableta) {
+        
+        boolean continuar = true;
+        String Serial = "";
+
+        do {
+
+            int opt = Validar_Opcion_Menu_1_5("Estudiante de ingenieria\n" +
+                                                "1) Registrar tableta\n" +
+                                                "2) Modificar tableta\n" +
+                                                "3) Eliminar tableta\n" +
+                                                "4) Buscar tableta\n" +
+                                                "5) Volver al menu principal");
+
+            switch (opt) {
+
+                case 1:
+
+                    Lista_tabletas = Registrar_Equipo(Lista_tabletas, esTableta);
+                    
+                    break;
+
+                case 2:
+                    
+                    Serial = cg.leerCadena3("Ingrese el serial:");
+                    Modificar_Equipo(Serial, Lista_tabletas, esTableta);
+
+                    break;
+            
+                case 3:
+
+                    Serial = cg.leerCadena3("Ingrese el serial:");
+                    Eliminar_Equipo(Serial, Lista_tabletas, esTableta);
+
+                    break;
+
+                case 4:
+                    
+                    Serial = cg.leerCadena3("Ingrese el serial:");
+                    Buscar_Equipo2(Lista_tabletas, Serial, esTableta);  
+
+                    break;
+
+                case 5:
+
+                    cg.Mensaje("Volviendo al menu principal");
+                    continuar = false; 
+
+                    break;
+
+            }
+        
+        }
+
+        while(continuar == true);
+
+    }
+
+    private ArrayList<TABLETA_GRAFICA> Registrar_Equipo(ArrayList<TABLETA_GRAFICA> Lista_tabletas, boolean esTableta) {
+
+        TABLETA_GRAFICA tableta = new TABLETA_GRAFICA();
+        String Serial = cg.leerCadena3("Ingrese el serial: ");
+
+        if (ValidarExistenciaEquipo(Lista_tabletas, Serial, esTableta)) {
+            
+            cg.Mensaje("Ya hay un equipo registrado con este serial");
+            return Lista_tabletas;
+
+        }
+
+        tableta.setSerial(Serial);
+        tableta.setMarca(cg.leerCadena4("Ingrese ea marca: "));
+        tableta.setTamaño(cg.leerRealPosMy0_f("Ingrese el tamaño(Pulgadas): "));
+        tableta.setPrecio(cg.leerRealPosMy0_f("Ingrese el precio: "));
+        tableta.setAlmacenamiento(IngresoAlmacenamiento("Ingrese el almacenamiento: \n"));
+        tableta.setPeso(cg.leerRealPosMy0_f("Ingrese el peso: \n"));
+
+        Lista_tabletas.add(tableta);
+        cg.Mensaje("tableta Portátil agregado.");
     
+        return Lista_tabletas;
+
+    }
+
+    private boolean ValidarExistenciaEquipo(ArrayList<TABLETA_GRAFICA> Lista_tabletaes, String Serial, boolean esTableta) {
+
+        for (TABLETA_GRAFICA tableta : Lista_tabletaes) {
+
+            if (tableta.getSerial().equals(Serial)) {
+
+                return true;
+
+            }
+
+        }
+
+        return false;        
+
+    }
+
+    private ArrayList<TABLETA_GRAFICA> Modificar_Equipo(String Serial, ArrayList<TABLETA_GRAFICA> Lista_tabletas, boolean esTableta) {
+
+        boolean encontrado = false;
+
+        for (int i = 0; i < Lista_tabletas.size(); i++) {
+            
+            TABLETA_GRAFICA tableta = Lista_tabletas.get(i);
+
+            if (tableta.getSerial().equals(Serial)) {
+
+                encontrado = true;
+                
+                tableta.setSerial(Serial);
+                tableta.setMarca(cg.leerCadena4("Ingrese la marca(Antes " + tableta.getMarca() + "): "));
+                tableta.setTamaño(cg.leerRealPosMy0_f("Ingrese el tamaño(Pulgadas, antes " + tableta.getTamaño() + "): "));
+                tableta.setPrecio(cg.leerRealPosMy0_f("Ingrese el precio(Antes " + tableta.getPrecio() + "):"));
+                tableta.setAlmacenamiento(IngresoAlmacenamiento("Ingrese el nuevo almacenamiento(Antes " + tableta.getAlmacenamiento() + "): \n"));
+                tableta.setPeso(cg.leerRealPosMy0_f("Ingrese el nuevo peso(Antes " + tableta.getPeso() + " kg) "));
+
+            }
+
+        }     
+        
+        if (encontrado == false) {
+
+            cg.Mensaje("No se halló un prestamo con este serial");
+
+        }   
+
+        return Lista_tabletas;
+
+        
+
+    }
+
+    private ArrayList<TABLETA_GRAFICA> Eliminar_Equipo(String Serial, ArrayList<TABLETA_GRAFICA> Lista_tabletas, boolean esTableta) {
+        
+        boolean encontrado = false;
+
+        for (int i = 0; i < Lista_tabletas.size(); i++) {
+            
+            TABLETA_GRAFICA tableta = Lista_tabletas.get(i);
+
+            if (tableta.getSerial().equals(Serial)) {
+
+                encontrado = true;
+                Lista_tabletas.remove(i);
+
+            }
+
+        }     
+        
+        if (encontrado == false) {
+
+            cg.Mensaje("No se halló un equipo con este serial");
+
+        }   
+
+        return Lista_tabletas;
+
+    }
+
+    private void Buscar_Equipo2(ArrayList<TABLETA_GRAFICA> Lista_tabletaes, String Serial, boolean esTableta) {
+
+        boolean encontrado = false;
+
+        for (TABLETA_GRAFICA tableta : Lista_tabletaes) {
+
+            if (tableta.getSerial().equals(Serial)) {
+
+                encontrado = true;
+
+                cg.Mensaje("\nSerial: " + tableta.getSerial() +
+                        "\nMarca: " + tableta.getMarca() +
+                        "\nTamaño: " + tableta.getTamaño() +
+                        "\nPrecio: " + tableta.getPrecio() +
+                        "\nAlmacenamiento: " + tableta.getAlmacenamiento() +
+                        "\nPeso: " + tableta.getPeso());
+
+            }
+
+        }     
+        
+        if (encontrado == false) {
+
+            cg.Mensaje("No se halló un equipo con ese serial");
+
+        }
+
+    }
+
+    private String IngresoAlmacenamiento(String Texto) {
+
+        try {
+
+            String opt = "";
+
+            int numero = Integer.parseInt(JOptionPane.showInputDialog(Texto +
+                                                                        "1) 256 GB\n" +
+                                                                        "2) 512 GB\n" +
+                                                                        "3) 1 TB"));
+    
+            if (numero < 0 || numero > 3) {
+
+                cg.Mensaje("Por favor, ingrese una opcion valida");
+
+                return IngresoAlmacenamiento(Texto);
+
+            }
+    
+            switch (numero) {
+
+                case 1:
+                    
+                    opt = "256 GB";
+
+                    break;
+            
+                case 2:
+
+                    opt = "512 GB";
+
+                    break;
+
+                 case 3:
+
+                    opt = "1 TB";
+
+                    break;
+
+            }
+
+            return opt;
+    
+        }
+        
+        catch (Exception e) {
+
+            cg.Mensaje("Error, tipo de dato no válido. Por favor, ingrese número valido");
+
+            return IngresoAlmacenamiento(Texto);
+
+        }
+
+    }
 
 }
