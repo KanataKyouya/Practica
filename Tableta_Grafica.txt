@@ -68,3 +68,10 @@ Precio: 270.0
 Almacenamiento: 256 GB
 Peso: 0.6
 ---------------------------------------
+Serial: B11
+Marca: asda
+Tamaño: 10.0
+Precio: 1000000.0
+Almacenamiento: 512 GB
+Peso: 10.0
+---------------------------------------

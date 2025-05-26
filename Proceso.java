@@ -447,7 +447,7 @@ public class Proceso {
         
         if (encontrado == false) {
 
-            cg.Mensaje("No se halló un prestamo con este serial");
+            cg.Mensaje("No se halló un prestamo con esta cedula");
 
         }   
 
