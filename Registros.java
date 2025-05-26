@@ -222,7 +222,7 @@ public class Registros {
 
     public ArrayList<COMPUTADOR_PORTATIL> Importar_Computador_Portatil() {
 
-        String rutaArchivo = "TABLETA_GRAFICA.txt";
+        String rutaArchivo = "Computador_Portatil.txt";
 
         ArrayList<COMPUTADOR_PORTATIL> Lista = new ArrayList<>();
 
@@ -473,7 +473,7 @@ public class Registros {
 
     public void Exportar_Computador(ArrayList<COMPUTADOR_PORTATIL> Lista) {
 
-        try (FileWriter escriba = new FileWriter("TABLETA_GRAFICA.txt")) {
+        try (FileWriter escriba = new FileWriter("Computador_Portatil.txt")) {
 
             for (COMPUTADOR_PORTATIL item : Lista) {
 

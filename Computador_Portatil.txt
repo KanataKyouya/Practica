@@ -1,70 +1,77 @@
-Serial: A1
+Serial: B1
+Marca: Wacom
+Tamaño: 0.0
+Precio: 350.0
+Sistema Operativo: Windows 10
+Procesador: AMD Ryzen
+---------------------------------------
+Serial: B2
+Marca: Huion
+Tamaño: 0.0
+Precio: 480.5
+Sistema Operativo: Windows 10
+Procesador: AMD Ryzen
+---------------------------------------
+Serial: B3
+Marca: XP-Pen
+Tamaño: 0.0
+Precio: 299.99
+Sistema Operativo: Windows 10
+Procesador: AMD Ryzen
+---------------------------------------
+Serial: B4
+Marca: Gaomon
+Tamaño: 0.0
+Precio: 220.0
+Sistema Operativo: Windows 10
+Procesador: AMD Ryzen
+---------------------------------------
+Serial: B5
+Marca: Artisul
+Tamaño: 0.0
+Precio: 550.0
+Sistema Operativo: Windows 10
+Procesador: AMD Ryzen
+---------------------------------------
+Serial: B6
+Marca: Ugee
+Tamaño: 0.0
+Precio: 310.0
+Sistema Operativo: Windows 10
+Procesador: AMD Ryzen
+---------------------------------------
+Serial: B7
+Marca: Parblo
+Tamaño: 0.0
+Precio: 180.0
+Sistema Operativo: Windows 10
+Procesador: AMD Ryzen
+---------------------------------------
+Serial: B8
+Marca: Renaisser
+Tamaño: 0.0
+Precio: 420.0
+Sistema Operativo: Windows 10
+Procesador: AMD Ryzen
+---------------------------------------
+Serial: B9
+Marca: Maxtear
+Tamaño: 0.0
+Precio: 200.0
+Sistema Operativo: Windows 10
+Procesador: AMD Ryzen
+---------------------------------------
+Serial: B10
+Marca: Simbans
+Tamaño: 0.0
+Precio: 270.0
+Sistema Operativo: Windows 10
+Procesador: AMD Ryzen
+---------------------------------------
+Serial: A11
 Marca: Lenovo
-Tama�o: 0.0
-Precio: 850.5
-Sistema Operativo: Windows 10
-Procesador: Intel Core i5
----------------------------------------
-Serial: A2
-Marca: Dell
-Tama�o: 0.0
-Precio: 1200.0
-Sistema Operativo: Windows 11
-Procesador: AMD Ryzen
----------------------------------------
-Serial: A3
-Marca: HP
-Tama�o: 0.0
-Precio: 999.99
-Sistema Operativo: Windows 7
-Procesador: Intel Core i5
----------------------------------------
-Serial: A4
-Marca: Asus
-Tama�o: 0.0
-Precio: 700.0
-Sistema Operativo: Windows 10
-Procesador: AMD Ryzen
----------------------------------------
-Serial: A5
-Marca: Acer
-Tama�o: 0.0
-Precio: 1100.0
+Tamaño: 15.0
+Precio: 10000.0
 Sistema Operativo: Windows 11
 Procesador: Intel Core i5
----------------------------------------
-Serial: A6
-Marca: Toshiba
-Tama�o: 0.0
-Precio: 800.0
-Sistema Operativo: Windows 7
-Procesador: AMD Ryzen
----------------------------------------
-Serial: A7
-Marca: Samsung
-Tama�o: 0.0
-Precio: 1300.0
-Sistema Operativo: Windows 10
-Procesador: Intel Core i5
----------------------------------------
-Serial: A8
-Marca: Apple
-Tama�o: 0.0
-Precio: 1500.0
-Sistema Operativo: Windows 11
-Procesador: AMD Ryzen
----------------------------------------
-Serial: A9
-Marca: Microsoft
-Tama�o: 0.0
-Precio: 1400.0
-Sistema Operativo: Windows 7
-Procesador: Intel Core i5
----------------------------------------
-Serial: A10
-Marca: MSI
-Tama�o: 0.0
-Precio: 1600.0
-Sistema Operativo: Windows 10
-Procesador: AMD Ryzen
 ---------------------------------------

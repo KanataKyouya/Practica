@@ -23,13 +23,13 @@ public class Proceso {
 
                 case 1:
     
-                    Menu_Interno(Lista_Computadores, Lista_Estudiantes_Ingenieria);
+                    Lista_Estudiantes_Ingenieria = Menu_Interno(Lista_Computadores, Lista_Estudiantes_Ingenieria);
                     
                     break;
     
                 case 2:
 
-                    Menu_Interno(Lista_Tabletas, Lista_Estudiantes_Diseño, esTableta);
+                    Lista_Estudiantes_Diseño = Menu_Interno(Lista_Tabletas, Lista_Estudiantes_Diseño, esTableta);
     
                     break;
             
@@ -41,13 +41,13 @@ public class Proceso {
     
                 case 4:
 
-                    Menu_Inventario(Lista_Computadores);
+                    Lista_Computadores = Menu_Inventario(Lista_Computadores);
 
                     break;
 
                 case 5:
 
-                    Menu_Inventario(Lista_Tabletas, esTableta);
+                    Lista_Tabletas = Menu_Inventario(Lista_Tabletas, esTableta);
 
                     break;
 
@@ -75,7 +75,7 @@ public class Proceso {
 
         try {
 
-            int numero = Integer.parseInt(JOptionPane.showInputDialog("GESTIóN DE PRESTAMO DE EQUIPOS ELECTRÓNICOS SAN JUAN DE DIOS\n" +
+            int numero = Integer.parseInt(JOptionPane.showInputDialog("GESTIóN DE PRESTAMO DE EQUIPOS ELECTRÓNICOS SAN JUAN DE DIOS\n\n" +
                                                                         "1) Estudiante Ingenieria\n" +
                                                                         "2) Estudiante Diseño\n" +
                                                                         "3) Imprimir inventario total\n" +
@@ -105,6 +105,8 @@ public class Proceso {
 
     }
 
+    //Para validar menus con 5 opciones
+
     public int Validar_Opcion_Menu_1_5(String Texto) {
 
         try {
@@ -132,6 +134,8 @@ public class Proceso {
         }
 
     }
+
+    //Para validar menus con 2 opciones
 
     private int Validar_1_2(String Texto) {
 
@@ -161,7 +165,10 @@ public class Proceso {
 
     }
 
-    private void Menu_Interno(ArrayList<COMPUTADOR_PORTATIL> Lista_Computadores, ArrayList<ESTUDIANTE_INGENIERIA> Lista_Estudiantes_Ingenieria) {
+    //Menu internos se refiere al menu de la opcion 1 o 2, que son para administrar prestamos de tabletas o de computadores
+    //Aqui empiezan los de ingenieria
+
+    private ArrayList<ESTUDIANTE_INGENIERIA> Menu_Interno(ArrayList<COMPUTADOR_PORTATIL> Lista_Computadores, ArrayList<ESTUDIANTE_INGENIERIA> Lista_Estudiantes_Ingenieria) {
         
         boolean continuar = true;
         String txt = "Buscar por:\n 1) Cedula\n2)Serial";
@@ -249,6 +256,8 @@ public class Proceso {
         }
 
         while(continuar == true);
+
+        return Lista_Estudiantes_Ingenieria;
 
     }
 
@@ -533,7 +542,9 @@ public class Proceso {
 
     }
 
-    private void Menu_Interno(ArrayList<TABLETA_GRAFICA> Lista_Tabletas, ArrayList<ESTUDIANTE_DISENO> Lista_Estudiantes_Diseño, boolean esTableta) {
+    //Aqui empiezan los de diseño
+
+    private ArrayList<ESTUDIANTE_DISENO> Menu_Interno(ArrayList<TABLETA_GRAFICA> Lista_Tabletas, ArrayList<ESTUDIANTE_DISENO> Lista_Estudiantes_Diseño, boolean esTableta) {
     
         boolean continuar = true;
     
@@ -622,6 +633,8 @@ public class Proceso {
         }
     
         while(continuar == true);
+
+        return Lista_Estudiantes_Diseño;
     
     }
     
@@ -964,7 +977,7 @@ public class Proceso {
 
     // Acá empiezan el menu de los computadores
 
-    private void Menu_Inventario(ArrayList<COMPUTADOR_PORTATIL> Lista_Computadores) {
+    private ArrayList<COMPUTADOR_PORTATIL> Menu_Inventario(ArrayList<COMPUTADOR_PORTATIL> Lista_Computadores) {
         
         boolean continuar = true;
         String Serial = "";
@@ -1019,6 +1032,8 @@ public class Proceso {
         }
 
         while(continuar == true);
+
+        return Lista_Computadores;
 
     }
 
@@ -1218,11 +1233,10 @@ public class Proceso {
             String opt = "";
 
             int numero = Integer.parseInt(JOptionPane.showInputDialog(Texto +
-                                                                        "1) Windows 7\n" +
-                                                                        "2) Windows 10\n" +
-                                                                        "3) Windows 11"));
+                                                                        "1) AMD Ryzen\n" +
+                                                                        "2) Intel Core i5"));
     
-            if (numero < 0 || numero > 3) {
+            if (numero < 0 || numero > 2) {
 
                 cg.Mensaje("Por favor, ingrese una opcion valida");
 
@@ -1262,7 +1276,7 @@ public class Proceso {
 
     // Acá empiezan el menu de las tabletas
 
-    private void Menu_Inventario(ArrayList<TABLETA_GRAFICA> Lista_tabletas, boolean esTableta) {
+    private ArrayList<TABLETA_GRAFICA> Menu_Inventario(ArrayList<TABLETA_GRAFICA> Lista_tabletas, boolean esTableta) {
         
         boolean continuar = true;
         String Serial = "";
@@ -1317,6 +1331,8 @@ public class Proceso {
         }
 
         while(continuar == true);
+
+        return Lista_tabletas;
 
     }
 
